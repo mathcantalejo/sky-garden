@@ -4,10 +4,10 @@ import br.com.fiap.loginskygarden.model.Regadores
 
 fun getAllRegadores(): List<Regadores> {
     return listOf(
-        Regadores(nome = "Salsinha", status = true),
+        Regadores(nome = "Alface", status = true, "16/09/2023", "8:30", 22, 15, 3),
         Regadores(nome = "Cebolinha", status = false),
-        Regadores(nome = "Alface", status = true),
-        Regadores(nome = "Salsa", status = true),
+        Regadores(nome = "Salsinha", status = true, "11/09/2023", "12:15", 18, 25, 8),
+        Regadores(nome = "Salsa", status = true, "22/09/2023", "14:45", 20, 19, 5),
         Regadores(nome = "Manjericão", status = false)
     )
 }

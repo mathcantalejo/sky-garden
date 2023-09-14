@@ -1,16 +1,20 @@
 package br.com.fiap.loginskygarden.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -28,7 +32,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,50 +40,74 @@ import androidx.navigation.compose.rememberNavController
 import br.com.fiap.loginskygarden.R
 import br.com.fiap.loginskygarden.ui.theme.JakartaBold
 import br.com.fiap.loginskygarden.ui.theme.JakartaSemiBold
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TelaSignUp(navController: NavController) {
+fun TelaPerfil(navController: NavController) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .background(Color(50, 81, 68, 255))
+            .padding(top = 65.dp, start = 25.dp, end = 25.dp)
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(280.dp)
-                .padding(top = 125.dp)
         ) {
+            Text(
+                text = "Meu Perfil",
+                fontFamily = JakartaSemiBold,
+                color = Color.White,
+                fontSize = 20.sp
+            )
+        }
+        Column(
+            Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(Modifier.height(30.dp))
             Image(
-                painter = painterResource(id = R.drawable.logo),
-                contentDescription = "logo",
+                painterResource(id = R.drawable.marianoalves),
+                contentDescription = null,
+                Modifier
+                    .size(80.dp)
+                    .border(
+                        BorderStroke(2.dp, Color(0xFF19A22F)),
+                        CircleShape
+                    )
+            )
+            Spacer(Modifier.height(30.dp))
+            var nome = remember {
+                mutableStateOf("")
+            }
+            Text(
+                text = "Nome",
+                fontSize = 14.sp,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 8.dp),
+                fontFamily = JakartaSemiBold
+            )
+            TextField(
+                value = nome.value,
+                onValueChange = { novoValor ->
+                    nome.value = novoValor
+                },
                 modifier = Modifier
-                    .size(100.dp)
-            ) }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = 26.dp
-                )
-        ) {
+                    .fillMaxWidth()
+                    .height(46.dp),
+                shape = RoundedCornerShape(6.dp),
+                colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
+            )
+            Spacer(Modifier.height(25.dp))
             var email = remember {
                 mutableStateOf("")
             }
             Text(
-                text = "Trazendo a natureza para o seu espaço.",
-                fontSize = 18.sp,
-                color = Color.White,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 20.dp),
-                fontFamily = JakartaSemiBold,
-                textAlign = TextAlign.Center
-            )
-            Text(
-                text = "E-mail:",
+                text = "E-mail",
                 fontSize = 14.sp,
                 color = Color.White,
                 modifier = Modifier.padding(bottom = 8.dp),
@@ -97,31 +124,12 @@ fun TelaSignUp(navController: NavController) {
                 shape = RoundedCornerShape(6.dp),
                 colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
             )
-            Spacer(modifier = Modifier.height(12.dp))
-            Text(
-                text = "Nome:",
-                fontSize = 14.sp,
-                color = Color.White,
-                modifier = Modifier.padding(bottom = 8.dp),
-                fontFamily = JakartaSemiBold
-            )
-            TextField(
-                value = email.value,
-                onValueChange = { novoValor ->
-                    email.value = novoValor
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(46.dp),
-                shape = RoundedCornerShape(6.dp),
-                colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
-            )
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(Modifier.height(25.dp))
             var senha = remember {
                 mutableStateOf("")
             }
             Text(
-                text = "Senha:",
+                text = "Senha",
                 fontSize = 14.sp,
                 color = Color.White,
                 modifier = Modifier.padding(bottom = 8.dp),
@@ -140,12 +148,12 @@ fun TelaSignUp(navController: NavController) {
                 visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
             )
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(Modifier.height(25.dp))
             var confirmarSenha = remember {
                 mutableStateOf("")
             }
             Text(
-                text = "Confirmar senha:",
+                text = "Confirmar senha",
                 fontSize = 14.sp,
                 color = Color.White,
                 modifier = Modifier.padding(bottom = 8.dp),
@@ -164,37 +172,19 @@ fun TelaSignUp(navController: NavController) {
                 visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
             )
-            Spacer(modifier = Modifier.height(21.dp))
-            Button(onClick = { navController.navigate("login") },
+            Spacer(Modifier.height(25.dp))
+            Button(
+                onClick = { navController.navigate("dashboard") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(46.dp),
                 shape = RoundedCornerShape(6.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF1C3128)
+                    containerColor = Color(0xFF98D060)
                 )
             ) {
                 Text(
-                    text = "CONFIRMAR",
-                    fontSize = 14.sp,
-                    color = Color.White,
-                    fontFamily = JakartaBold
-                )
-            }
-            Spacer(modifier = Modifier.height(6.dp))
-            Row(horizontalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Text(
-                    text = "Já tem uma conta? ",
-                    fontSize = 14.sp,
-                    color = Color.White,
-                    fontFamily = JakartaSemiBold
-                )
-                Text(
-                    text = "Entrar",
-                    Modifier.clickable { navController.navigate("login") },
+                    text = "Salvar alterações",
                     fontSize = 14.sp,
                     color = Color.White,
                     fontFamily = JakartaBold
@@ -206,6 +196,6 @@ fun TelaSignUp(navController: NavController) {
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-fun TelaSignUpPreview() {
-    TelaSignUp(rememberNavController())
+fun TelaPerfilPreview() {
+    TelaPerfil(rememberNavController())
 }

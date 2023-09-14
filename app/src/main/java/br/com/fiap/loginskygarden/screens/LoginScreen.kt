@@ -2,6 +2,7 @@ package br.com.fiap.loginskygarden.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -112,7 +113,7 @@ fun TelaLogin(navController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
             )
             Spacer(modifier = Modifier.height(63.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { navController.navigate("dashboard") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(46.dp),
@@ -131,7 +132,8 @@ fun TelaLogin(navController: NavController) {
             Spacer(modifier = Modifier.height(21.dp))
             Text(
                 text = "Esqueceu sua senha?",
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .clickable {  navController.navigate("esqueceusenha") },
                 fontSize = 14.sp,
                 color = Color.White,
                 fontFamily = JakartaSemiBold,
@@ -150,6 +152,7 @@ fun TelaLogin(navController: NavController) {
                 )
                 Text(
                     text = "Cadastre-se",
+                    Modifier.clickable { navController.navigate("cadastrar") },
                     fontSize = 14.sp,
                     color = Color.White,
                     fontFamily = JakartaBold

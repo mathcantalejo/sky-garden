@@ -85,6 +85,7 @@ fun TelaEsqueceuSenha(navController: NavController) {
                     fontFamily = JakartaSemiBold
                 )
                 TextField(
+
                     value = email.value,
                     onValueChange = { novoValor ->
                         email.value = novoValor
@@ -94,9 +95,10 @@ fun TelaEsqueceuSenha(navController: NavController) {
                         .height(46.dp),
                     shape = RoundedCornerShape(6.dp),
                     colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
+                    
                 )
                 Spacer(modifier = Modifier.height(21.dp))
-                Button(onClick = { /*TODO*/ },
+                Button(onClick = { navController.navigate("login") },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(46.dp),
