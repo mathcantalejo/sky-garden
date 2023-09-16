@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.loginskygarden.R
+import br.com.fiap.loginskygarden.components.BottomNavigationBar
 import br.com.fiap.loginskygarden.ui.theme.JakartaBold
 import br.com.fiap.loginskygarden.ui.theme.JakartaSemiBold
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
@@ -174,7 +175,7 @@ fun TelaPerfil(navController: NavController) {
             )
             Spacer(Modifier.height(25.dp))
             Button(
-                onClick = { navController.navigate("dashboard") },
+                onClick = { navController.navigate("menu") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(46.dp),
@@ -189,9 +190,11 @@ fun TelaPerfil(navController: NavController) {
                     color = Color.White,
                     fontFamily = JakartaBold
                 )
+
             }
         }
     }
+    BottomNavigationBar(navController = navController)
 }
 
 @Preview(showSystemUi = true, showBackground = true)

@@ -113,7 +113,7 @@ fun TelaLogin(navController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(containerColor = Color(219, 234, 208)),
             )
             Spacer(modifier = Modifier.height(63.dp))
-            Button(onClick = { navController.navigate("dashboard") },
+            Button(onClick = { navController.navigate("menu") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(46.dp),

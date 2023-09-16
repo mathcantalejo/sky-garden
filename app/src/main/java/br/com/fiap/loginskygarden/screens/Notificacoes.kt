@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.loginskygarden.R
+import br.com.fiap.loginskygarden.components.BottomNavigationBar
 import br.com.fiap.loginskygarden.ui.theme.JakartaBold
 import br.com.fiap.loginskygarden.ui.theme.JakartaSemiBold
 
@@ -58,6 +59,7 @@ fun TelaNotificacoes(navController: NavController) {
         NotificacoesCard("Cebola regada")
         NotificacoesCard("Alface regado")
     }
+    BottomNavigationBar(navController = navController)
 }
 
 @Composable

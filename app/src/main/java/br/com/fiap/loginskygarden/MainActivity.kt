@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = "regadores",
+                        startDestination = "login",
                     ) {
                         composable(route = "login") {
                             TelaLogin(navController)

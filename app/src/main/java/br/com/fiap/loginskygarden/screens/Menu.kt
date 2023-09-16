@@ -2,6 +2,7 @@ package br.com.fiap.loginskygarden.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.loginskygarden.R
+import br.com.fiap.loginskygarden.components.BottomNavigationBar
 import br.com.fiap.loginskygarden.components.PlantaCard
 import br.com.fiap.loginskygarden.components.PlantaSection
 import br.com.fiap.loginskygarden.components.RegadoresCard
@@ -60,6 +62,7 @@ fun TelaMenu(navController: NavController) {
             PlantaCard()
         }
     }
+    BottomNavigationBar(navController = navController)
 
 }
 
@@ -73,7 +76,7 @@ fun GreetingSection(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 65.dp, end = 25.dp)
-        ) {
+    ) {
         Column(
             verticalArrangement = Arrangement.Center
         ) {
@@ -92,6 +95,7 @@ fun GreetingSection(
 
     }
 }
+
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable

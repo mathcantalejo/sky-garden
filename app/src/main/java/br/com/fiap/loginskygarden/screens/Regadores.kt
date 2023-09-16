@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.loginskygarden.R
+import br.com.fiap.loginskygarden.components.BottomNavigationBar
 import br.com.fiap.loginskygarden.model.Regadores
 import br.com.fiap.loginskygarden.ui.theme.JakartaBold
 import br.com.fiap.loginskygarden.ui.theme.JakartaSemiBold
@@ -60,6 +61,7 @@ fun TelaRegadores(navController: NavController) {
         RegadoressCard("Regadores Alface 3")
         RegadoressCard("Regadores Salsinha")
     }
+    BottomNavigationBar(navController = navController)
 }
 
 
@@ -98,7 +100,8 @@ fun RegadoressCard(nome: String) {
                 Image(
                     painterResource(id = R.drawable.edit_logo),
                     contentDescription = null,
-                    Modifier.size(15.dp)
+                    Modifier
+                        .size(15.dp)
                 )
                 Image(
                     painterResource(id = R.drawable.deletewh),
